@@ -205,6 +205,7 @@ hand side of the dot. Remember that these 'this''s are two different things.
 function UserCreator(name, score) {
   //no object creation statement, handled automaticaly cuz of 'new'
   this.name = name;
+  //this.increment = function() {} //Remember we don't put functions in a constructor function because that function wil be repeated throughout memory on all instances
   this.score = score;
   //no return statement, handled automatically cuz of 'new'
 }
@@ -236,5 +237,31 @@ UserCreator.prototype.login = function () {
 };
 user7.login(); //Congrats John, you're logged in
 user6.login(); //Congrats Joe, you're logged in
+console.log(user7.__proto__ === UserCreator.prototype); //true;
 
-/*This can occur because essentially all 
+/*This can occur because essentially all functions have a function version which you call
+and an object version which can store properties*/
+/*Technically its more complicated as all functions are 100% objects with some 
+special properties, but thats out of scope for this article*/
+
+/*Another benefit of having all your 'user' functions stored in one place is you
+can make edits / overwrite functions in one location as opposed to doing it on
+every single instance*/
+UserCreator.prototype.increment = function () {
+  this.score += 2;
+};
+user7.increment();
+user6.increment();
+console.log(user6.score); //6 (was previously 4)
+console.log(user7.score); //8 (was previously 6)
+
+/*Something else thats important to note here is the 'constructor' property
+that is created by default. The 'constructor' property
+points to the specific constructor function that was used to create that instance*/
+console.log(user6.constructor === UserCreator); //true
+
+/*So there you have it, Thats what the prototype is and it was a commonly used
+practice in ES5. We haven't gone over the specifics of inheritance using ES5
+and will do so in a later note. ES6 has essentially changed the syntax for this
+utility but the process under the hood is essentially the same. We'll write
+about those specific differences in the ES6 classes note*/

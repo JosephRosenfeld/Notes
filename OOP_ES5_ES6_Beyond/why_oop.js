@@ -52,5 +52,9 @@ your functionality with the pertinent data becomes much more important*/
   - Put simpley, Polymorphism is the ability for an object to take on many forms  
 */
 
-/*Check out the oop_in_js.js file to see notes on how these concepts are applied
-in JavaScript*/
+/*JS OOP have had multiple implementations since JS is always changing:
+ -Pre ES6 (would use constructor functions and setting methods on prototypes)
+ -ES6 (introduced class keyword, constructor method, super keyword)
+ -ES6 post (class fields being introduced, static and private fields)
+*/
+/*Check out the arriving_at_the_prototype.js file for a good entry point into OOP in js*/
