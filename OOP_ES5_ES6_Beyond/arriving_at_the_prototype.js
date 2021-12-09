@@ -1,5 +1,8 @@
 /*---Intro---*/
-/*Resource: https://www.youtube.com/watch?v=aAAS9cEuFYI&t=22s&ab_channel=Codesmith
+/*Resources:
+  - https://www.youtube.com/watch?v=aAAS9cEuFYI&t=22s&ab_channel=Codesmith
+
+
 /*This article will walk you through how OOP programming is implemented in JS
 by starting with the core concept of trying to pair functionality with pertinent
 data, REMEMBER this definition as you read this article. There are many different
@@ -265,3 +268,6 @@ practice in ES5. We haven't gone over the specifics of inheritance using ES5
 and will do so in a later note. ES6 has essentially changed the syntax for this
 utility but the process under the hood is essentially the same. We'll write
 about those specific differences in the ES6 classes note*/
+
+/*------------------------------------------------------*/
+/*Next section of notes: prototype_in_depth.js*/

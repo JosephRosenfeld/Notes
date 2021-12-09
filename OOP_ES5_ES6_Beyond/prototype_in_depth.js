@@ -175,3 +175,6 @@ console.log(user1.toString); //undefined
 /*- Object.setPrototypeOf()
   - Object.getPrototypeOf()
   those two are self explanatory*/
+
+/*--------------------------------------------------------*/
+/*For the next section of notes, check out the es5_inheritance.js file*/
