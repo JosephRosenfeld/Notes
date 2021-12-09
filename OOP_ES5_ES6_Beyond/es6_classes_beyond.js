@@ -1,3 +1,6 @@
+/*---Resources:
+  -https://stackoverflow.com/questions/54851200/what-is-the-difference-between-class-fields-and-properties-in-javascript
+
 //Private fields and methods
 //Define a private field with a pound sign
 
