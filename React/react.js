@@ -2,7 +2,6 @@
 at a later date to be more readable, for now its just to jot quick notes and 
 store links to articles I found valuable*/
 
-
 /*A componenent that doesn't modify it's props is called a "pure" component*/
 
 /*Resources
@@ -10,36 +9,40 @@ store links to articles I found valuable*/
     - https://www.youtube.com/watch?v=i793Qm6kv3U&ab_channel=CrossComm%2CInc.
     - https://en.reactjs.org/docs/reconciliation.html
   */
- /*Virtual DOM element:
-  -Its really just a plain old JS object that looks like this*/
-  const MyComponent = {
+/*Virtual DOM element:
+  -Its really just a plain old JS object that looks like the following:*/
+/*
+const MyComponent = {
     <main>
       <h1 id='title'>Look ma!</h1>
     </main>
   }
-  /*Translates to this:*/
-  {
-    type: "main",
-    key: null,
-    ref: null,
-    "$$typeof": Symbol(react.element),
-    props: {
-      children: {
-        type: "h1",
-        key: null,
-        ref: null,
-        props: {
-          id: "title",
-          children: "Look ma!"
-        }
+  */
+/*Translates to this:*/
+/*
+{
+  type: "main",
+  key: null,
+  ref: null,
+  "$$typeof": Symbol(react.element),
+  props: {
+    children: {
+      type: "h1",
+      key: null,
+      ref: null,
+      props: {
+        id: "title",
+        children: "Look ma!"
       }
     }
   }
-  /*The combination of all these 'elements' is the actual virtual DOM.
+}
+*/
+/*The combination of all these 'elements' is the actual virtual DOM.*/
 
-  -Why did React shift from classes to React hooks?
+/*  -Why did React shift from classes to React hooks?
     -https://www.youtube.com/watch?v=eX_L39UvZes&t=271s&ab_channel=uidotdev
-  -
+*/
 
 /*React need to call 'super' in the constructor?*/
 /*Resource:
@@ -51,9 +54,9 @@ class Derived extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      property1: 'property1',
-      property2: 'property2'
-    }
+      property1: "property1",
+      property2: "property2",
+    };
   }
 }
 /*In JS you have to call super in the constructor function before you can access
@@ -67,9 +70,9 @@ class Derived extends React.Component {
   constructor(props) {
     super(); //forgot to pass props here
     this.state = {
-      property1: 'property1',
-      property2: 'property2'
-    }
+      property1: "property1",
+      property2: "property2",
+    };
     this.method1 = this.method1.bind(this);
   }
 
@@ -77,8 +80,8 @@ class Derived extends React.Component {
     console.log(this.props); // this will work but why?
   }
 
-  render () {
-    return <h1 onClick={this.method1}></h1>
+  render() {
+    return <h1 onClick={this.method1}></h1>;
   }
 }
 /*This works because even though the parent constructor was never given the 
@@ -100,8 +103,6 @@ class Component {
 const instance = new YourComponent(props);
 instance.props = props; //(Assigning that instance of your component props)
 
-
-
 /*Why did we need to autobind our functions?*/
 /*Resources: 
   - https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/
@@ -112,12 +113,12 @@ instance.props = props; //(Assigning that instance of your component props)
 was invoked. For example, this function will have different values for 'this'
 with each call*/
 var obj = {};
-obj.func = function() {
+obj.func = function () {
   console.log(this);
 };
-obj.test() //obj
+obj.test(); //obj
 var holder = obj.test;
-holder() //global (window object in browser)
+holder(); //global (window object in browser)
 
 /*Seen in a class declaration*/
 class MyClass {
@@ -127,9 +128,9 @@ class MyClass {
 }
 
 var myInstance = new MyClass();
-myInstance.method1() //myInstance;
+myInstance.method1(); //myInstance;
 var holder = myInstance.method1;
-holder() //global
+holder(); //global
 
 /*This is a problem especially when 'this' gets used in a callback or as an
 event handler or for a third party library because you don't have control
@@ -144,9 +145,9 @@ class MyClass2 {
   }
 }
 var myInstance = new MyClass2();
-myInstance.method1() //myInstance;
+myInstance.method1(); //myInstance;
 var holder = myInstance.method1;
-holder() //myInstance
+holder(); //myInstance
 
 /*This can also be solved using class fields and arrow functions because
 arrow functions don't define 'this' based on how the function was invoked, but
@@ -154,15 +155,12 @@ instead based on how the function is LEXICALLY DEFINED!!*/
 class MyClass3 {
   method1 = () => {
     console.log(this);
-  }
+  };
 }
 var myInstance = new MyClass3();
-myInstance.method1() //myInstance;
+myInstance.method1(); //myInstance;
 var holder = myInstance.method1;
-holder() //myInstance
+holder(); //myInstance
 
 /*Should be noted though that this doesn't define the function on the protoype
-so it is less memory effecient, but its necessary if you need to define 'this'
-
-
-
+so it is less memory effecient, but its necessary if you need to define 'this'*/
