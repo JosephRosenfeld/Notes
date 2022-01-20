@@ -164,3 +164,14 @@ holder(); //myInstance
 
 /*Should be noted though that this doesn't define the function on the protoype
 so it is less memory effecient, but its necessary if you need to define 'this'*/
+
+/*Resource: https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928*/
+
+/*React has 3 seperate phases when converting the component tree to the actual DOM:
+
+1. The render phase (create React elements with React.createElement)
+2. The reconciliation phase (react's diffing algo to compare previous VDOM with new one)
+3. The commit phase (update the DOM (if needed))*/
+
+/*A component re-renders if it recieved new props, state was updated,
+the parent component re-renders*/
